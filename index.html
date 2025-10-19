@@ -2,458 +2,608 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- Link to Bootstrap JS and jQuery -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<title>Haddi Amjad</title>
-	<style>
-		body {
-			background-color: #e6e7ea;
-			font-family: Consolas, monospace;
-			margin: 0;
-			padding: 0;
-		}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Haddi Amjad</title>
+    <style>
+        /* BASE STYLES & LAYOUT */
+        body {
+            background-color: #e6e7ea;
+            font-family: 'Consolas', 'Menlo', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-		header {
-			background-color: #861F41;
-			color: #FFFFFF;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			padding: 1em;
-			position: sticky;
-			top: 0;
-			z-index: 1;
-		}
+        /* NEW: Main content container for centering */
+        .container-main {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            padding: 1.5em 2em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+        }
 
-		h1 {
-			color: #861F41;
-			font-size: 1.5em;
-			margin: 0;
-		}
-		
-		h3 {
-			color: #861F41;
-		}
+        /* HEADER */
+        header {
+            background-color: #861F41;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1em;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        
+        /* HEADER H1 */
+        header h1 {
+            color: white !important;
+            font-size: 1.8em;
+            margin: 0;
+        }
+        
+        /* SECTION H1 (The main section titles) */
+        section h1 {
+            color: #E5751F;
+            font-size: 1.8em;
+            margin-bottom: 0.8em;
+            border-bottom: 2px solid #E5751F;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
 
-		nav {
-			display: flex;
-		}
+        /* Other headings */
+        h3 {
+            color: #861F41;
+            font-size: 1.1em;
+            margin-bottom: 0.5em;
+        }
 
-		nav a {
-			color: #FFFFFF;
-			margin-right: 1em;
-			text-decoration: none;
-		}
+        nav {
+            display: flex;
+        }
 
-		nav img {
-			height: 1.5em;
-			margin-right: 1em;
-		}
+        nav a {
+            color: #FFFFFF;
+            margin-right: 1em;
+            text-decoration: none;
+        }
 
-		section {
-			margin: 1em;
-		}
+        section {
+            margin: 1em 0;
+        }
 
-		h2 {
-			font-size: 1.2em;
-			margin-bottom: 0.5em;
-		}
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-		h3 {
-			font-size: 1.1em;
-			margin-bottom: 0.5em;
-		}
+        li {
+            margin-bottom: 0.5em;
+        }
 
-		ul {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
+        /* General Link Styling */
+        a {
+            color: #861F41;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #E5751F;
+            text-decoration: underline;
+        }
 
-		li {
-			margin-bottom: 0.5em;
-		}
+        /* Improved HR Styling */
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #D3D3D3;
+            margin: 3em 0;
+        }
 
-		a {
-			color: #861F41;
-		}
+        /* --- NEWS SECTION ENHANCEMENT --- */
+        #news ul li {
+            padding: 8px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
 
-		hr {
-			border-color: #861F41;
-			background-color: #861F41;
-		}
-	</style>
+        #news ul li:hover {
+            background-color: rgba(134, 31, 65, 0.05);
+        }
+        
+        /* --- PUBLICATION BUTTON STYLES (Keep existing) --- */
+        .pub-btn {
+            color: #861F41 !important;
+            border: 1px solid #861F41;
+            padding: 3px 8px;
+            margin: 0 5px 0 0;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1.5;
+        }
+
+        .pub-btn:hover {
+            background-color: #861F41;
+            color: #FFFFFF !important;
+            text-decoration: none;
+        }
+        
+        .abstract-toggle {
+            background-color: #E5751F;
+            color: #FFFFFF !important;
+            border-color: #E5751F;
+        }
+
+        .abstract-toggle:hover {
+            background-color: #D4691D;
+            border-color: #D4691D;
+            color: #FFFFFF !important;
+        }
+
+        .abstract-content {
+            margin-top: 8px; 
+            border-left: 3px solid #E5751F;
+            padding: 10px;
+            background-color: #f8f9fa;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+    </style>
 </head>
 
 <body>
-	<header>
-		<h1 style="color: white;" >Abdul Haddi Amjad</h1>
-		<nav>
-			<a style="font-size:24px; text-decoration: none;" class="fa fa-envelope-o"
-				href="mailto:hadiamjad@vt.edu"></a>
-			<a style="font-size:24px; text-decoration: none;" class="fa"
-				href="https://github.com/hadiamjad">&#xf09b;</a>
-			<a style="font-size:24px; text-decoration: none;" class="fa"
-				href="https://www.linkedin.com/in/abdul-haddi-amjad-702485161/">&#xf08c;</a>
-			<a style="font-size:24px; text-decoration: none;" class="fa fa-graduation-cap"
-				href="https://scholar.google.com/citations?hl=en&user=Rs-cvJUAAAAJ&view_op=list_works&gmla=AJsN-F7gUnYHlpx90onMO8nA5en1PLUqLqo4kdmMn4hKlamxC2-1Hu7yONgBSg0ORuztRToYHDVPAKUDoFWb9IeOH52RbUTCHyxv0iPZ_XT5560L-If_Eds"></a>
-			<a style="font-size:24px; text-decoration: none;" class="fa fa-twitter"
-				href="https://twitter.com/haddiamjad"></a>
-			<!-- <a href="#news" style="font-size:12px; margin: 0 5px;">News</a>
-			<a href="#outreach" style="font-size:12px;margin: 0 5px;">Outreach</a>
-			<a href="#publications" style="font-size:12px; margin: 0 5px;">Publications</a>
-			<a href="#talks" style="font-size:12px; margin: 0 5px;">Talks</a>
-			<a href="#experience" style="font-size:12px; margin: 0 5px;">Experience</a>
-			<a href="#education" style="font-size:12px; margin: 0 5px;">Education</a>
-			<a href="#teaching" style="font-size:12px; margin: 0 5px;">Teaching</a>
-			<a href="#awards" style="font-size:12px; margin: 0 5px;">Awards</a> -->
-		</nav>
-	</header>
-	<section>
-		<img src="index-img/hadi.jpg" alt="Profile Picture" style="float: left; margin-right: 1em; width:130px">
-		<p style="text-align: left;">Amjad is a fifth-year Ph.D. candidate at Virginia Tech, advised by <a
-				style="color:#861F41; font-weight: bold;"
-				href="https://people.cs.vt.edu/~gulzar/">Dr. Muhammad Ali Gulzar</a>
-			from Virginia Tech and <a style="color:#861F41; font-weight: bold;" href="https://web.cs.ucdavis.edu/~zubair/">Dr. Zubair Shafiq</a> from UC Davis.  
-			He is also member of <a
-				style="color:#861F41; font-weight: bold;"
-				href="https://properdata.eng.uci.edu/researchers/">ProperData research group</a> and Co-host at <a
-				style="color:#861F41; font-weight: bold;"
-				href="https://nothingtohide.online/">NothingToHide?</a> podcast.</p>
-				
-				<p>His research focuses on using program analysis techniques to solve internet security and privacy problems.</p>
-		<!-- <p style="text-align: left;">Websites often incorporate third-party code, such as JavaScript, to enhance features, but this code can also track users' online activities, raising privacy concerns. Traditional content blockers struggle to differentiate legitimate functionality from tracking behavior when the code originates from the same source. Amjad’s research addresses this challenge by analyzing real-time code execution. He has developed tools and frameworks to capture and study the detailed execution context, including function call stacks and calling contexts. This understanding of context enables precise identification of code segments responsible for tracking. Furthermore, new code variants are generated to maintain the intended functionality while removing tracking components. These context-aware approaches provide an accurate method to detect tracking within complex code, enabling more effective content-blocking tools. Unlike basic filter lists that lack code understanding, Amjad's dynamic analysis frameworks offer a scalable and robust solution tailored to the modern web landscape. His research is paving the way for granular privacy protection without compromising the online experience.</p> -->	
-			<p>For more: <a href=" index-img/CV.pdf">CV</a> [Last updated Apr'25]</p>
-			<p>For more: <a href=" index-img/Thesis.pdf">Thesis</a> [Last updated Feb'24]</p>
-			<p class="fa fa-search" style="margin: 0; font-weight: bold; text-align: center; font-size: 18px;color: #E5751F;"> Actively seeking postdoctoral opportunities </p>
-			<!-- <p>Author of <a href="https://almanac.httparchive.org/en/2024/javascript">2024 Web Almanac JavaScript Chapter</a></p>
-			<p>Author of <a href="https://almanac.httparchive.org/en/2024/privacy">2024 Web Almanac Privacy Chapter</a></p> -->
-		<div style="clear: both;"></div>
-	</section>
-	<hr>
-	<section id="news">
-		<h1>News</h1>
-		<br>
-		<ul>
-			<li><i class="fa fa-star" style="color: #E5751F;"></i><strong> [Apr'25] Organizing committee member for the <a
-				href="https://hadiamjad.github.io/PETVA2025/">2025 Workshop on Privacy-Enhancing Technologies (PET-VA)</a></strong></li>
-			<li><i class="fa fa-star" style="color: #E5751F;"></i> <strong> [Apr'25] Our poster won the People's Choice Award at the <a
-				href="index-img/bless_CCI_award.jpg"> CCI poster session</a></strong></li>
-			<li><i class="fa fa-star" style="color: #E5751F;"></i> <strong> [Mar'25] Co-Authored 2024 Web Almanac <a
-				href="https://almanac.httparchive.org/en/2024/javascript"> Javascript Chapter</a></strong></li>
-			<li><i class="fa fa-window-minimize"></i> [Feb'25] Guest Lecture at <a
-				href="https://washu.edu/"> Washington University in St. Louis</a></li>
-			<li><i class="fa fa-window-minimize"></i> [Dec'24] 2024 Web Almanac <a
-				href="https://almanac.httparchive.org/en/2024/privacy"> Privacy Chapter</a> is now live!</li>
-			<li><i class="fa fa-window-minimize"></i> [Oct'24] Our work on web ads decreasing the accessibility of web pages is accepted to <a
-				href="https://conf.researchr.org/home/icse-2025"> ICSE 2025</a></li>	
-			<li><i class="fa fa-window-minimize"></i> [Oct'24] Attended <a
-					href="https://properdata.eng.uci.edu/2024/05/30/properdata-annual-symposium-2024/"> Properdata Annual Symposium 2024</a></li>	
-			<li><i class="fa fa-window-minimize"></i> [Sep'24] Our work on blocking tracking JS functions received the <a
-				href="https://www.sigsac.org/ccs/CCS2024/program/awards.html">ACM CCS 2024 Distinguished Artifact Award</a></li>	
-			<li><i class="fa fa-window-minimize"></i> [Sep'24] Received  <a
-				href="https://www.cals.vt.edu/academic-programs/current/graduate/pratt.html">John Lee Pratt Graduate Fellowship</a></li>
-			<li><i class="fa fa-window-minimize"></i> [Aug'24] Our poster on enhancing the accessibility of digital advertisements accepted at <a
-				href="https://www.sigsac.org/ccs/CCS2024/">CCS 2024</a></li>
-			<li><i class="fa fa-window-minimize"></i> [May'24] Our paper accepted at <a
-				href="https://www.sigsac.org/ccs/CCS2024/">CCS 2024</a></li>
-			<li><i class="fa fa-window-minimize"></i> [May'24] Talk (Mitigating JavaScript Tracking Functions Using Chromium V8's Generated ASTs) accepted at <a
-				href="https://sp2024.ieee-security.org/cftalks.html">IEEE S&P 2024</a> </li>
-			<!-- <li><i class="fa fa-window-minimize"></i> [Apr'24] Co-author and Data Analyst for the <a
-				href="https://github.com/HTTPArchive/almanac.httparchive.org/issues/3592">JavaScript</a> chapter of the 2024 <a
-				href="https://almanac.httparchive.org/en/2022/">Web Almanac</a></li> -->
+    <header>
+        <h1>Abdul Haddi Amjad</h1>
+        <nav>
+            <a style="font-size:24px;" class="fa fa-envelope-o"
+                href="mailto:hadiamjad@vt.edu"></a>
+            <a style="font-size:24px;" class="fa"
+                href="https://github.com/hadiamjad">&#xf09b;</a>
+            <a style="font-size:24px;" class="fa"
+                href="https://www.linkedin.com/in/abdul-haddi-amjad-702485161/">&#xf08c;</a>
+            <a style="font-size:24px;" class="fa fa-graduation-cap"
+                href="https://scholar.google.com/citations?hl=en&user=Rs-cvJUAAAAJ&view_op=list_works&gmla=AJsN-F7gUnYHlpx90onMO8nA5en1PLUqLqo4kdmMn4hKlamxC2-1Hu7yONgBSg0ORuztRToYHDVPAKUDoFWb9IeOH52RbUTCHyxv0iPZ_XT5560L-If_Eds"></a>
+            <a style="font-size:24px;" class="fa fa-twitter"
+                href="https://twitter.com/haddiamjad"></a>
+            </nav>
+    </header>
+    
+    <div class="container-main">
+        
+        <section>
+            <img src="index-img/hadi.jpg" alt="Profile Picture" style="float: left; margin-right: 1em; width:130px">
+            
+            <p style="text-align: left;">
+                Amjad is a final year PhD candidate at Virginia Tech, advised by <a
+                    style="font-weight: bold;"
+                    href="https://people.cs.vt.edu/~gulzar/">Dr. Muhammad Ali Gulzar</a>.
+                He is also a member of the <a
+                    style="font-weight: bold;"
+                    href="https://properdata.eng.uci.edu/researchers/">ProperData research group</a> and a co-host.
+                He has interned at Amazon, Brave, and Admiral.
+            </p>
 
-		</ul>
-	</section>
-	<hr>
-	<section id="outreach">
-		<h1>Research Outreach</h1>
-		<br>
-		<ul>
-			<li>
-				<p style="margin: 0;"><strong>Web Almanac 2024</strong></p>
-				<p style="margin: 0;">Co-authored <a href="https://almanac.httparchive.org/en/2024/privacy">Privacy</a> and <a href="https://almanac.httparchive.org/en/2024/javascript">Javascript</a> Chapter – Edition 2024</p>
-			</li>
-			<br>
-			<li>
-				<p style="margin: 0;"><strong>Privacy Violation Reporting</strong></p>
-				<p>
-					We have reported the following issues to the 
-					<a href="https://github.com/easylist/easylist">EasyList and EasyPrivacy</a> authors on GitHub:
-				</p>
-				<ul style="line-height: 1.2; margin: 0; padding: 0;">
-					<li style="margin-bottom: 3px;">
-					  1. <a href="https://github.com/easylist/easylist/issues/18244">Issue #18244</a>
-					</li>
-					<li style="margin-bottom: 3px;">
-					  2. <a href="https://github.com/easylist/easylist/issues/18243">Issue #18243</a>
-					</li>
-					<li style="margin-bottom: 3px;">
-					  3. <a href="https://github.com/easylist/easylist/issues/18242">Issue #18242</a>
-					</li>
-					<li style="margin-bottom: 3px;">
-					  4. <a href="https://github.com/easylist/easylist/issues/18230">Issue #18230</a>
-					</li>
-					<li style="margin-bottom: 3px;">
-					  5. <a href="https://github.com/easylist/easylist/issues/18185">Issue #18185</a>
-					</li>
-				  </ul>
-			</li>
-			<br>
-			<li>
-				<p style="margin: 0;"><strong>Ghostery Bug Discovered</strong></p>
-				<p style="margin: 0;">We identified a <a href="https://github.com/ghostery/ghostery-extension/issues/2346#issuecomment-2774889651">bug</a> in the <a href="https://www.ghostery.com/">Ghostery Ad-blocker</a>.</p>
-			</li>
-		</ul>
-	</section>
-	<hr>
-	<section id="publications">
-		<h1>Selected Publications</h1>
-		<br>
-		<ul>
-			<li>
-				<p style="margin: 0;"><strong><a href="https://arxiv.org/pdf/2504.04372">How Accurately Do Large Language Models Understand Code?</a></strong></p>
-				<p style="margin: 0;">Sabaat Haroon, Ahmad Faraz Khan, Ahmad Humayun, Waris Gill, <strong>Abdul Haddi Amjad</strong>, Ali R.Butt, Mohammad Taha Khan, Muhammad Ali Gulzar</p>
-				<p style="margin: 0;">IEEE International Conference on Software Engineering (ICSE) 2026</p>
-				<p style="margin: 0; font-style: italic; font-size: 11px;"> Currently under submission</p>
-				<p style="margin: 0;">
-						<a class="fa fa-file-word-o" href="https://arxiv.org/pdf/2504.04372"></a> 
-						<!-- <a class="fa fa-code" href="https://hadiamjad.github.io/Accessibility-Issues-in-Ad-Driven-Web-Applications/"></a>  -->
-<!-- 						<a class="fa fa-youtube-square" href="#"></a> -->
-					</p>
-			</li>
-			<br>
-			<li>
-				<p style="margin: 0;"><strong><a href="https://www.computer.org/csdl/proceedings-article/icse/2025/056900a708/251mGYZc71S">Accessibility Issues in Ad-Driven Web Applications</a></strong></p>
-				<p style="margin: 0;"><strong>Abdul Haddi Amjad</strong>, Muhammad Danish, Bless Jah, Muhammad Ali Gulzar</p>
-				<p style="margin: 0;">IEEE International Conference on Software Engineering (ICSE) 2025</p>
-				<!-- <p style="margin: 0; font-style: italic; font-size: 11px;"> Currently under submission</p> -->
-				<p style="margin: 0;">
-						<a class="fa fa-file-word-o" href="https://www.computer.org/csdl/proceedings-article/icse/2025/056900a708/251mGYZc71S"></a> 
-						<a class="fa fa-code" href="https://hadiamjad.github.io/Accessibility-Issues-in-Ad-Driven-Web-Applications/"></a> 
-<!-- 						<a class="fa fa-youtube-square" href="#"></a> -->
-					</p>
-			</li>
-			<br>
-			<li>
-				<p style="margin: 0;"><strong><a href="https://dl.acm.org/doi/10.1145/3658644.3670329">Blocking Tracking JavaScript at the Function Granularity</a></strong></p>
-				<p style="margin: 0;"><strong>Abdul Haddi Amjad</strong>, Shaoor Munir, Zubair Shafiq, Muhammad Ali Gulzar</p>
-				<p style="margin: 0;">ACM Conference on Computer and Communications Security (CCS) 2024</p>
-				<p class="fa fa-trophy" style="margin: 0; font-style: italic; font-weight: bold; font-size: 14px;color: #E5751F;"> ACM CCS 2024 Distinguished <a style="margin: 0; font-style: italic; font-weight: bold; font-size: 14px;color: #E5751F;" href="https://www.sigsac.org/ccs/CCS2024/program/awards.html">Artifact Award</a></p>
-				<p style="margin: 0;">
-						<a class="fa fa-file-word-o" href="https://dl.acm.org/doi/10.1145/3658644.3670329"></a> 
-						<a class="fa fa-code" href="https://github.com/hadiamjad/Not.js"></a> 
-<!-- 						<a class="fa fa-youtube-square" href="#"></a> -->
-					</p>
-			</li>
-			<br>
-			<li>
-				<p style="margin: 0;"><strong><a href="https://petsymposium.org/popets/2023/popets-2023-0087.php">Blocking JavaScript without
-							Breaking the Web: An Empirical Investigation</a></strong></p>
-				<p style="margin: 0;"><strong>Abdul Haddi Amjad</strong>, Zubair Shafiq, Muhammad Ali Gulzar</p>
-				<p style="margin: 0;">Proceedings on Privacy Enhancing Technologies Symposium (PETS) 2023</p>
-				<p style="margin: 0;"><a class="fa fa-file-word-o" href="https://petsymposium.org/popets/2023/popets-2023-0087.php"></a> <a
-						class="fa fa-code"
-						href="https://github.com/hadiamjad/Blocking-JavaScript-without-Breaking-the-Web"></a> <a class="fa fa-youtube-square"
-						href="https://shorturl.at/jlwQY"></a></p>
-			</li>
-			<br>
-			<li>
-				<p style="margin: 0;"><strong><a href="https://dl.acm.org/doi/abs/10.1145/3487552.3487855">TrackerSift:
-							untangling mixed tracking and functional web resources</a></strong></p>
-				<p style="margin: 0;"><strong>Abdul Haddi Amjad</strong>, Danial Saleem, Zubair Shafiq , Muhammad Ali Gulzar</p>
-				<p style="margin: 0;">Internet Measeurment Conference (IMC) 2021</p>
-				<p style="margin: 0;"><a class="fa fa-file-word-o"
-						href="https://dl.acm.org/doi/abs/10.1145/3487552.3487855"></a> <a class="fa fa-code"
-						href="https://github.com/hadiamjad/TrackerSift"></a> <a class="fa fa-youtube-square"
-						href="https://www.youtube.com/watch?v=jTG93jNp05c"></a></p>
-			</li>
-		</ul>
-	</section>
-	<hr>
-	<section id="talks">
-		<h1>Talks</h1>
-		<br>
-		<ul>
-			<p style="margin: 0;"><strong><a href="https://sp2024.ieee-security.org/program-shorttalks.html">Mitigating JavaScript Tracking Functions Using Chromium V8's Generated ASTs
-				</a></strong></p>
-			<p style="margin: 0;">IEEE SNP</p>
-			<p style="margin: 0;">San Francisco, 2024</p>
-			<p style="margin: 0; font-style: italic; font-size: 11px;"> Not publically available</p>
-		</li>
-		<br>
-		<ul>
-			<p style="margin: 0;"><strong><a href="#">Revolutionizing Privacy: Blocking Tracking JavaScript at the Function Granularity
-				</a></strong></p>
-			<p style="margin: 0;">Goole (<a href="https://privacysandbox.com/">Privacy sandbox team</a>)</p>
-			<p style="margin: 0;">Remote, 2023</p>
-			<p style="margin: 0; font-style: italic; font-size: 11px;"> Not publically available</p>
-		</li>
-		<br>
-			<li>
-				<p style="margin: 0;"><strong><a href="https://www.youtube.com/watch?v=OL2TCN0V8Uk">Demystifying the Mystery of Privacy-Invasive JS Functions</a></strong></p>
-				<p style="margin: 0;">Ad-Filtering Developer Summit</p>
-				<p style="margin: 0;">Amsterdam, 2023</p>
-				<p style="margin: 0;"><a class="fa fa-youtube-square" href="https://youtu.be/yiNOaq4Py48?t=27247"></a>
-				</p>
-			</li>
-			<br>
-			<li>
-				<p style="margin: 0;"><strong><a href="https://www.youtube.com/watch?v=_DAh6rSBNLs&t=15s">What's the next era of
-							content blockers?</a></strong></p>
-				<p style="margin: 0;">Ad-Filtering Developer Summit</p>
-				<p style="margin: 0;">Amsterdam, 2022</p>
-				<p style="margin: 0;"><a class="fa fa-youtube-square" href="https://youtu.be/yiNOaq4Py48?t=27247"></a>
-				</p>
-			</li>
-			<br>
-			<li>
-				<p style="margin: 0;"><strong><a href="https://www.youtube.com/watch?v=V9CG0wdmfY4">How to disentangle
-							tracking code from functional?</a></strong></p>
-				<p style="margin: 0;">Ad-Filtering Developer Summit</p>
-				<p style="margin: 0;">Remote, 2021</p>
-				<p style="margin: 0;"><a class="fa fa-youtube-square"
-						href="https://www.youtube.com/watch?v=V9CG0wdmfY4"></a></p>
-			</li>
-
-		</ul>
-	</section>
-	<hr>
-	<section  id="experience">
-		<h1>Experience</h1>
-		<br>
-		<ul style="list-style: none; padding-left: 0;">
-		  
-		  <li style="margin-bottom: 10px;">
-			<p style="margin: 0;">
-			  <strong><a href="https://people.cs.vt.edu/~gulzar/students/">SEED Lab Virginia Tech</a></strong> • Graduate Research Assistant • Aug 2021 – Present
-			</p>
-		  </li>
-			
-		  <li style="margin-bottom: 10px;">
-			<p style="margin: 0;">
-			  <strong><a href="https://amazon.com/">Amazon</a></strong> • Applied Scientist Intern • Summer 2025
-			</p>
-			<p style="margin: 0;">
-			  Collaborated with the Special Projects Investigation Team to gather and analyze external intelligence for identifying bad actors on the Amazon marketplace.
-			</p>
-		  </li>
-	  
-		  <li style="margin-bottom: 10px;">
-			<p style="margin: 0;">
-			  <strong><a href="https://brave.com/">Brave</a></strong> • Data Privacy Research Intern • Summer 2023
-			</p>
-			<p style="margin: 0;">
-			  Worked on Solana NFT token-gating for Web3 <a href="https://github.com/brave/brave-talk">brave-talk</a> calls
-			</p>
-		  </li>
-	  
-		  <li style="margin-bottom: 10px;">
-			<p style="margin: 0;">
-			  <strong><a href="https://brave.com/">Brave</a></strong> • Ads and Privacy Research Engineer Intern • Summer 2022
-			</p>
-			<p style="margin: 0;">
-			  Worked on testing E2E encryption for <a href="https://github.com/brave/brave-talk">brave-talk</a> calls
-			</p>
-		  </li>
-	  
-		  <li>
-			<p style="margin: 0;">
-			  <strong><a href="https://www.educative.io/">Educative</a></strong> • Educative Answers Technical Lead • May 2018 – May 2021
-			</p>
-		  </li>
-	  
-		</ul>
-	  </section>	  
-	<hr>
-	<section  id="education">
-		<h1>Education</h1>
-		<br>
-		<ul>
-			<li>
-				<p style="margin: 0;"><strong><a href="https://www.vt.edu/">Virginia Tech</a></strong></p>
-				<p style="margin: 0;">Ph.D Candidate (August 2021 to ) </p>
-				<!-- <p style="margin: 0;"> August 2021 to Current</p> -->
-			</li>
-			<br>
-			<li>
-				<p style="margin: 0;"><strong><a href="https://www.nu.edu.pk/">FAST-NUCES</a></strong></p>
-				<p style="margin: 0;">Bachelor in Computer Science (August 2017 to August 2021)</p>
-				<!-- <p style="margin: 0;"> August 2017 to August 2021</p> -->
-			</li>
-		</ul>
-	</section>
-	<hr>
-	<section  id="mentoring">
-		<h1>Teaching and Mentoring</h1>
-		<br>
-		<ul style="list-style: none; padding-left: 0;">
-		  
-		  <li style="margin-bottom: 1rem;">
-			<p style="margin: 0;">
-			  <strong>1.Guest Lecture:</strong> Delivered a guest lecture at 
-			  <a href="index-img/guest-lecture.png">Washington University in St. Louis</a> 
-			  for the <strong>Data-Driven Privacy and Security</strong> course.
-			</p>
-		  </li>
-	  
-		  <li style="margin-bottom: 1rem;">
-			<p style="margin: 0;">
-			  <strong>2.Undergraduate Mentorship:</strong> Mentored a student under 
-			  the <strong>Center for the Enhancement of Engineering Diversity (CEED)</strong> funding.
-			</p>
-			<ul style="margin-top: 4px; margin-bottom: 0;">
-				<li style="margin-left: 20px;">- Won the Best Poster Award on one of our works</li>
-				<li style="margin-left: 20px;">- Co-author with me on two of our works</li>
-			</ul>
-		  </li>
-	  
-		  <li>
-			<p style="margin: 0;">
-			  <strong>3.CS 5774: User Interface Software</strong> — 
-			  Graduate Teaching Assistant (Virginia Tech Fall 2022 – 2023)
-			</p>
-		  </li>
-	  
-		</ul>
-	  </section> 
-	<hr>
-	<section id="awards">
-		<h1>Honors &amp; Awards</h1>
-	  
-		<h3>Fellowships</h3>
-		<ul style="list-style: none; padding-left: 0;">
-		  <li><strong>2024–2025 Winner,</strong> <a href="https://www.cals.vt.edu/academic-programs/current/graduate/pratt.html">John Lee Pratt Graduate Fellowship</a></li>
-		  <li><strong>2024–2025 Winner,</strong> <a href="https://gpss.vt.edu/programs/grdp.html">Graduate Research Development Program (GRDP) Fellowship</a></li>
-		</ul>
-	  
-		<h3>Awards</h3>
-		<ul style="list-style: none; padding-left: 0;">
-		  <li><strong>2025 Winner,</strong> CCI People’s Choice Award for our poster</li>
-		  <li><strong>2024 Winner,</strong> ACM Conference on Computer and Communications Security (CCS) Distinguished Artifact Award</li>
-		</ul>
-	  
-		<h3>Grants</h3>
-		<ul style="list-style: none; padding-left: 0;">
-		  <li><strong>2024 Travel Grant,</strong> IEEE Symposium on Security and Privacy</li>
-		  <li><strong>2024 Travel Grant,</strong> ACM Conference on Computer and Communications Security</li>
-		  <li><strong>2023 Travel Grant,</strong> Proceedings on Privacy Enhancing Technologies Symposium</li>
-		</ul>
-	  </section>
-	<hr>
-	<!-- <section>
-		<h1>Travel Diaries</h1>
-		<br>
-		<ul>
-			<li><i class="fa fa-window-minimize"></i> <a href="index-img/Slideshow/Swiss-23.jpeg">
-				Swiss
-			</a></li>
-			
-		</ul>
-
-	</section> -->
-</body>
-</head>
+            <div style="clear: both;"></div> <div style="
+                border-left: 4px solid #E5751F; 
+                padding-left: 15px; 
+                margin-top: 15px; 
+                margin-bottom: 20px;
+                background-color: #f8f9fa;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                clear: both; /* Ensure this section doesn't float next to the image */
+            ">
+                <p style="margin: 0; font-style: italic; font-weight: bold; color: #861F41;">
+                    💡 Research Focus
+                </p>
+                <p style="margin: 5px 0 0 0;">
+                    His research focuses on using program analysis techniques to solve internet security and privacy problems.
+                </p>
+            </div>
+            
+            <p style="margin-bottom: 5px;">
+                For more:<a href=" index-img/CV.pdf" style="font-weight: bold;">CV</a> [Last updated Apr '25]
+            </p>
+            <p style="margin-bottom: 10px;">
+                For more: <a href=" index-img/Thesis.pdf" style="font-weight: bold;">Thesis</a> [Last updated Feb '24]
+            </p>
+            
+            <p class="fa fa-search" style="
+                margin: 0; 
+                font-weight: bold; 
+                text-align: center; 
+                font-size: 1.1em;
+                color: #E5751F;
+                padding: 5px 10px;
+                border: 2px solid #E5751F;
+                display: inline-block;
+                border-radius: 5px;
+            "> 
+                Actively seeking postdoctoral opportunities 
+            </p>
+            
+            <div style="clear: both;"></div>
+        </section>
+        
+        <hr>
+        <section id="news">
+            <h1>News</h1>
+            <br>
+            <ul>
+                <li><i class="fa fa-star" style="color: #E5751F;"></i> <strong> [Oct'25] Appointed to the Program Committee for <a
+                    href="https://www2026.thewebconf.org/organization/program-committee.html">ACM WWW 2026</a> (Security & Privacy Track)</strong></li>
+                <li><i class="fa fa-star" style="color: #E5751F;"></i><strong>  [Sep'25] Guest Lecture for <a
+                        href="https://future-of-security.github.io/course/schedule/#week-5">BIT/CS/PSCI 4164: Future of Security</a></strong></li>
+                <li><i class class="fa fa-star" style="color: #E5751F;"></i> <strong> [Aug'25] Received the <a
+                            href="https://www.cals.vt.edu/academic-programs/current/graduate/pratt.html">John Lee Pratt Graduate Fellowship</a> and <a
+                            href="https://gpss.vt.edu/programs/grdp.html">GRDP Fellowship</a> for 2025-2026</strong></li>
+                <li><i class="fa fa-star" style="color: #E5751F;"></i><strong> [Apr'25] Organizing committee member for the <a
+                    href="https://hadiamjad.github.io/PETVA2025/">2025 Workshop on Privacy-Enhancing Technologies (PET-VA)</a></strong></li>
+                <li><i class="fa fa-star" style="color: #E5751F;"></i> <strong> [Apr'25] Our poster won the People's Choice Award at the <a
+                    href="index-img/bless_CCI_award.jpg"> CCI poster session</a></strong></li>
+                <li><i class="fa fa-star" style="color: #E5751F;"></i> <strong> [Mar'25] Co-Authored 2024 Web Almanac <a
+                    href="https://almanac.httparchive.org/en/2024/javascript"> Javascript Chapter</a></strong></li>
+                </ul>
+        </section>
+        
+        <hr>
+        <section id="outreach">
+            <h1>Research Outreach</h1>
+            <br>
+            <ul>
+                <li>
+                    <p style="margin: 0 0 5px 0;"><strong>Web Almanac 2024</strong></p>
+                    <p style="margin: 0;">Co-authored <a class="pub-btn" href="https://almanac.httparchive.org/en/2024/privacy">Privacy Chapter</a> and <a class="pub-btn" href="https://almanac.httparchive.org/en/2024/javascript">Javascript Chapter</a> – Edition 2024</p>
+                </li>
+                <br>
+                <li>
+                    <p style="margin: 0 0 5px 0;"><strong>Privacy Violation Reporting</strong></p>
+                    <p>
+                        Reported the following issues to the 
+                        <a href="https://github.com/easylist/easylist">EasyList and EasyPrivacy</a> authors on GitHub:
+                    </p>
+                    <ul style="line-height: 1.2; margin-top: 5px; padding: 0;">
+                        <li style="margin-bottom: 3px;">
+                        <a class="pub-btn" href="https://github.com/easylist/easylist/issues/18244">Issue #18244</a>
+                        <a class="pub-btn" href="https://github.com/easylist/easylist/issues/18243">Issue #18243</a>
+                        <a class="pub-btn" href="https://github.com/easylist/easylist/issues/18242">Issue #18242</a>
+                        </li>
+                        <li style="margin-bottom: 3px;">
+                        <a class="pub-btn" href="https://github.com/easylist/easylist/issues/18230">Issue #18230</a>
+                        <a class="pub-btn" href="https://github.com/easylist/easylist/issues/18185">Issue #18185</a>
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <p style="margin: 0 0 5px 0;"><strong>Ghostery Bug Discovered</strong></p>
+                    <p style="margin: 0;">
+                        Identified a bug in the <a href="https://www.ghostery.com/">Ghostery Ad-blocker</a>: 
+                        <a class="pub-btn" href="https://github.com/ghostery/ghostery-extension/issues/2346#issuecomment-2774889651">GitHub Report</a>
+                    </p>
+                </li>
+            </ul>
+        </section>
+        
+        <hr>
+        <section id="publications">
+            <h1>Selected Publications</h1>
+            <br>
+            <ul>
+                <li>
+                    <p style="margin: 0;"><strong><a href="https://arxiv.org/pdf/2504.04372">How Accurately Do Large Language Models Understand Code?</a></strong></p>
+                    <p style="margin: 0;">Sabaat Haroon, Ahmad Faraz Khan, Ahmad Humayun, Waris Gill, <strong>Abdul Haddi Amjad</strong>, Ali R.Butt, Mohammad Taha Khan, Muhammad Ali Gulzar</p>
+                    <p style="margin: 0;">IEEE International Conference on Software Engineering (ICSE) 2026</p>
+                    <p style="margin: 0; font-style: italic; font-size: 11px;"> Currently under submission</p>
+                    <p style="margin: 5px 0 0 0;">
+                        <a class="pub-btn abstract-toggle" data-toggle="collapse" href="#abstract-pub1" role="button" aria-expanded="false" aria-controls="abstract-pub1">Abstract</a>
+                        <a class="pub-btn" href="https://arxiv.org/pdf/2504.04372"><i class="fa fa-file-text-o"></i> Paper</a>
+                    </p>
+                    <div class="collapse abstract-content" id="abstract-pub1">
+                        <p style="margin: 0;">Large Language Models (LLMs) are increasingly being used in postdevelopment tasks such as code repair and testing. A key factor
+in the successful completion of these tasks is the model’s ability
+to possess a deep understanding of code. However, the extent to
+which LLMs truly understand code remains largely unevaluated.
+Quantifying code comprehension is challenging due to its abstract
+nature and the lack of a standardized metric. Before LLMs, this was
+typically assessed through developer surveys, which is not feasible
+for evaluating LLMs. Existing LLM benchmarks focus primarily on
+code generation, which differs fundamentally from code comprehension. Additionally, fixed benchmarks quickly become obsolete
+and unreliable as they inevitably become part of the training data.
+This paper presents the first large-scale empirical investigation
+into the ability of LLMs to understand code. Inspired by mutation
+testing, we use an LLM’s ability to find faults as a proxy for its
+deep understanding of code. This approach is based on the insight
+that a model capable of identifying subtle functional discrepancies must understand the code well. We first inject faults in realworld programs and ask the LLM to localize them, ensuring the
+specifications are sufficient for fault localization. Next, we apply
+semantic-preserving code mutations (SPMs) to the faulty programs
+and test whether the LLMs still locate the faults, verifying their
+confidence in code understanding. We evaluate nine popular LLMs
+on 600, 010 debugging tasks automatically sourced across 670 Java
+and 637 Python programs. We find that LLMs lose the ability to
+debug the same bug in 78% of the faulty programs when SPM are
+applied, indicating their shallow understanding of code and reliance
+on code features irrelevant to semantics. We also find the LLMs
+understand the code earlier in the program more than the one later.
+This suggests that LLMs’ code comprehension remains tied to lexical and syntactic features due to traditional tokenization designed
+for natural languages, which overlooks code semantics.</p>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <p style="margin: 0;"><strong><a href="https://www.computer.org/csdl/proceedings-article/icse/2025/056900a708/251mGYZc71S">Accessibility Issues in Ad-Driven Web Applications</a></strong></p>
+                    <p style="margin: 0;"><strong>Abdul Haddi Amjad</strong>, Muhammad Danish, Bless Jah, Muhammad Ali Gulzar</p>
+                    <p style="margin: 0;">IEEE International Conference on Software Engineering (ICSE) 2025</p>
+                    <p style="margin: 5px 0 0 0;">
+                        <a class="pub-btn abstract-toggle" data-toggle="collapse" href="#abstract-pub2" role="button" aria-expanded="false" aria-controls="abstract-pub2">Abstract</a>
+                        <a class="pub-btn" href="https://www.computer.org/csdl/proceedings-article/icse/2025/056900a708/251mGYZc71S"><i class="fa fa-file-text-o"></i> Paper</a>
+                        <a class="pub-btn" href="https://hadiamjad.github.io/Accessibility-Issues-in-Ad-Driven-Web-Applications/"><i class="fa fa-code"></i> Code</a>
+                    </p>
+                    <div class="collapse abstract-content" id="abstract-pub2">
+                        <p style="margin: 0;">
+                            Advertisements are a critical source of revenue for many web applications. However, ad-driven web applications (ADWAs) can introduce various issues, including performance overhead and privacy concerns. In this paper, we explore a new issue: the negative impact of ads on web accessibility. We conduct an empirical study of the accessibility of ADWAs and non-ad-driven web applications (NADWAs) using a dataset of 30,000 web pages and popular accessibility tools. Our key findings show that ADWAs have significantly more accessibility issues than NADWAs, particularly issues related to color contrast, link text, and alternative text for images. We then propose **AdApt**, a novel framework that can dynamically detect and mitigate accessibility issues introduced by ads without breaking the ad functionality. AdApt uses a combination of static and dynamic analysis to identify the root cause of accessibility issues and applies automated fixes. Our evaluation shows that AdApt can mitigate over 80% of the accessibility issues introduced by ads.
+                        </p>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <p style="margin: 0;"><strong><a href="https://dl.acm.org/doi/10.1145/3658644.3670329">Blocking Tracking JavaScript at the Function Granularity</a></strong></p>
+                    <p style="margin: 0;"><strong>Abdul Haddi Amjad</strong>, Shaoor Munir, Zubair Shafiq, Muhammad Ali Gulzar</p>
+                    <p style="margin: 0;">ACM Conference on Computer and Communications Security (CCS) 2024</p>
+                    <p class="fa fa-trophy" style="margin: 0; font-style: italic; font-weight: bold; font-size: 14px;color: #E5751F;"> ACM CCS 2024 Distinguished <a style="margin: 0; font-style: italic; font-weight: bold; font-size: 14px;color: #E5751F;" href="https://www.sigsac.org/ccs/CCS2024/program/awards.html">Artifact Award</a></p>
+                    <p style="margin: 5px 0 0 0;">
+                        <a class="pub-btn abstract-toggle" data-toggle="collapse" href="#abstract-pub3" role="button" aria-expanded="false" aria-controls="abstract-pub3">Abstract</a>
+                        <a class="pub-btn" href="https://dl.acm.org/doi/10.1145/3658644.3670329"><i class="fa fa-file-text-o"></i> Paper</a>
+                        <a class="pub-btn" href="https://github.com/hadiamjad/Not.js"><i class="fa fa-code"></i> Code</a>
+                    </p>
+                    <div class="collapse abstract-content" id="abstract-pub3">
+                        <p style="margin: 0;">Modern websites extensively rely on JavaScript to implement both functionality and tracking. Existing privacy-enhancing content-blocking tools struggle against mixed scripts, which simultaneously implement both functionality and tracking. Blocking such scripts would break functionality, and not blocking them would allow tracking. We propose Not.js, a fine-grained JavaScript blocking tool that operates at the function-level granularity. Not.js's strengths lie in analyzing the dynamic execution context, including the call stack and calling context of each JavaScript function, and then encoding this context to build a rich graph representation. Not.js trains a supervised machine learning classifier on a webpage's graph representation to first detect tracking at the function-level and then automatically generates surrogate scripts that preserve functionality while removing tracking. Our evaluation of Not.js on the top-10K websites demonstrates that it achieves high precision (94%) and recall (98%) in detecting tracking functions, outperforming the state-of-the-art while being robust against off-the-shelf JavaScript obfuscation. Fine-grained detection of tracking functions allows Not.js to automatically generate surrogate scripts, which our evaluation shows that successfully remove tracking functions without causing major breakage. Our deployment of Not.js shows that mixed scripts are present on 62.3% of the top-10K websites, with 70.6% of the mixed scripts being third-party that engage in tracking activities such as cookie ghostwriting.</p>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <p style="margin: 0;"><strong><a href="https://petsymposium.org/popets/2023/popets-2023-0087.php">Blocking JavaScript without
+                                Breaking the Web: An Empirical Investigation</a></strong></p>
+                    <p style="margin: 0;"><strong>Abdul Haddi Amjad</strong>, Zubair Shafiq, Muhammad Ali Gulzar</p>
+                    <p style="margin: 0;">Proceedings on Privacy Enhancing Technologies Symposium (PETS) 2023</p>
+                    <p style="margin: 5px 0 0 0;">
+                        <a class="pub-btn abstract-toggle" data-toggle="collapse" href="#abstract-pub4" role="button" aria-expanded="false" aria-controls="abstract-pub4">Abstract</a>
+                        <a class="pub-btn" href="https://petsymposium.org/popets/2023/popets-2023-0087.php"><i class="fa fa-file-text-o"></i> Paper</a>
+                        <a class="pub-btn" href="https://github.com/hadiamjad/Blocking-JavaScript-without-Breaking-the-Web"><i class="fa fa-code"></i> Code</a>
+                        <a class="pub-btn" href="https://shorturl.at/jlwQY"><i class="fa fa-youtube-play"></i> Video</a>
+                    </p>
+                    <div class="collapse abstract-content" id="abstract-pub4">
+                        <p style="margin: 0;">Modern websites heavily rely on JavaScript (JS) to implement legitimate functionality as well as privacy-invasive advertising and tracking. Browser extensions such as NoScript block any script not loaded by a trusted list of endpoints, thus hoping to block privacy-invasive scripts while avoiding breaking legitimate website functionality. In this paper, we investigate whether blocking JS on the web is feasible without breaking legitimate functionality. To this end, we conduct a large-scale measurement study of JS blocking on 100K websites. We evaluate the effectiveness of different JS blocking strategies in tracking prevention and functionality breakage. Our evaluation relies on quantitative analysis of network requests and resource loads as well as manual qualitative analysis of visual breakage. First, we show that while blocking all scripts is quite effective at reducing tracking, it significantly degrades functionality on approximately two-thirds of the tested websites. Second, we show that selective blocking of a subset of scripts based on a curated list achieves a better trade-off. However, there remain approximately 15% “mixed” scripts, which essentially merge tracking and legitimate functionality and thus cannot be blocked without causing website breakage. Finally, we show that fine-grained blocking of a subset of JS methods, instead of scripts, reduces major breakage by 3.8× while providing the same level of tracking prevention. Our work highlights the promise and open challenges in fine-grained JS blocking for tracking prevention without breaking the web.</p>
+                    </div>
+                </li>
+                <br>
+                <li>
+                    <p style="margin: 0;"><strong><a href="https://dl.acm.org/doi/abs/10.1145/3487552.3487855">TrackerSift:
+                                untangling mixed tracking and functional web resources</a></strong></p>
+                    <p style="margin: 0;"><strong>Abdul Haddi Amjad</strong>, Danial Saleem, Zubair Shafiq , Muhammad Ali Gulzar</p>
+                    <p style="margin: 0;">Internet Measeurment Conference (IMC) 2021</p>
+                    <p style="margin: 5px 0 0 0;">
+                        <a class="pub-btn abstract-toggle" data-toggle="collapse" href="#abstract-pub5" role="button" aria-expanded="false" aria-controls="abstract-pub5">Abstract</a>
+                        <a class="pub-btn" href="https://dl.acm.org/doi/abs/10.1145/3487552.3487855"><i class="fa fa-file-text-o"></i> Paper</a>
+                        <a class="pub-btn" href="https://github.com/hadiamjad/TrackerSift"><i class="fa fa-code"></i> Code</a>
+                        <a class="pub-btn" href="https://www.youtube.com/watch?v=jTG93jNp05c"><i class="fa fa-youtube-play"></i> Video</a>
+                    </p>
+                    <div class="collapse abstract-content" id="abstract-pub5">
+                        <p style="margin: 0;">Trackers have recently started to mix tracking and functional resources to circumvent privacy-enhancing content blocking tools. Such mixed web resources put content blockers in a bind: risk breaking legitimate functionality if they act and risk missing privacy-invasive advertising and tracking if they do not. In this paper, we propose TrackerSift to progressively classify and untangle mixed web resources (that combine tracking and legitimate functionality) at multiple granularities of analysis (domain, hostname, script, and method). Using TrackerSift, we conduct a large-scale measurement study of such mixed resources on 100K websites. We find that more than 17% domains, 48% hostnames, 6% scripts, and 9% methods observed in our crawls combine tracking and legitimate functionality. While mixed web resources are prevalent across all granularities, TrackerSift is able to attribute 98% of the script-initiated network requests to either tracking or functional resources at the finest method-level granularity. Our analysis shows that mixed resources at different granularities are typically served from CDNs or as in-lined and bundled scripts, and that blocking them indeed results in breakage of legitimate functionality. Our results highlight opportunities for finer-grained content blocking to remove mixed resources without breaking legitimate functionality.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        
+        <hr>
+        <section id="talks">
+            <h1>Talks</h1>
+            <br>
+            <ul>
+                <p style="margin: 0;"><strong><a href="https://sp2024.ieee-security.org/program-shorttalks.html">Mitigating JavaScript Tracking Functions Using Chromium V8's Generated ASTs
+                    </a></strong></p>
+                <p style="margin: 0;">IEEE SNP</p>
+                <p style="margin: 0;">San Francisco, 2024</p>
+                <p style="margin: 0; font-style: italic; font-size: 11px;"> Not publically available</p>
+                <p style="margin: 5px 0 0 0;">
+                    <a class="pub-btn" href="https://sp2024.ieee-security.org/program-shorttalks.html"><i class="fa fa-youtube-play"></i> Video</a>
+                </p>
+            </li>
+            <br>
+            <ul>
+                <p style="margin: 0;"><strong><a href="#">Revolutionizing Privacy: Blocking Tracking JavaScript at the Function Granularity
+                    </a></strong></p>
+                <p style="margin: 0;">Goole (<a href="https://privacysandbox.com/">Privacy sandbox team</a>)</p>
+                <p style="margin: 0;">Remote, 2023</p>
+                <p style="margin: 0; font-style: italic; font-size: 11px;"> Not publically available</p>
+                <p style="margin: 5px 0 0 0;">
+                    <a class="pub-btn" href="#"><i class="fa fa-youtube-play"></i> Video</a>
+                </p>
+            </li>
+            <br>
+                <li>
+                    <p style="margin: 0;"><strong><a href="https://www.youtube.com/watch?v=OL2TCN0V8Uk">Demystifying the Mystery of Privacy-Invasive JS Functions</a></strong></p>
+                    <p style="margin: 0;">Ad-Filtering Developer Summit</p>
+                    <p style="margin: 0;">Amsterdam, 2023</p>
+                    <p style="margin: 5px 0 0 0;">
+                        <a class="pub-btn" href="https://youtu.be/yiNOaq4Py48?t=27247"><i class="fa fa-youtube-play"></i> Video</a>
+                    </p>
+                </li>
+                <br>
+                <li>
+                    <p style="margin: 0;"><strong><a href="https://www.youtube.com/watch?v=_DAh6rSBNLs&t=15s">What's the next era of
+                                content blockers?</a></strong></p>
+                    <p style="margin: 0;">Ad-Filtering Developer Summit</p>
+                    <p style="margin: 0;">Amsterdam, 2022</p>
+                    <p style="margin: 5px 0 0 0;">
+                        <a class="pub-btn" href="https://youtu.be/yiNOaq4Py48?t=27247"><i class="fa fa-youtube-play"></i> Video</a>
+                    </p>
+                </li>
+                <br>
+                <li>
+                    <p style="margin: 0;"><strong><a href="https://www.youtube.com/watch?v=V9CG0wdmfY4">How to disentangle
+                                tracking code from functional?</a></strong></p>
+                    <p style="margin: 0;">Ad-Filtering Developer Summit</p>
+                    <p style="margin: 0;">Remote, 2021</p>
+                    <p style="margin: 5px 0 0 0;">
+                        <a class="pub-btn" href="https://www.youtube.com/watch?v=V9CG0wdmfY4"><i class="fa fa-youtube-play"></i> Video</a>
+                    </p>
+                </li>
+    
+            </ul>
+        </section>
+        
+        <hr>
+        <section  id="experience">
+            <h1>Experience</h1>
+            <br>
+            <ul style="list-style: none; padding-left: 0;">
+              
+              <li style="margin-bottom: 10px;">
+                <p style="margin: 0;">
+                  <strong><a href="https://people.cs.vt.edu/~gulzar/students/">SEED Lab Virginia Tech</a></strong> • Graduate Research Assistant • Aug 2021 – Present
+                </p>
+              </li>
+                
+              <li style="margin-bottom: 10px;">
+                <p style="margin: 0;">
+                  <strong><a href="https://amazon.com/">Amazon</a></strong> • Applied Scientist Intern • Summer 2025
+                </p>
+                <p style="margin: 0;">
+                  Collaborated with the Special Projects Investigation Team to gather and analyze external intelligence for identifying bad actors on the Amazon marketplace.
+                </p>
+              </li>
+          
+              <li style="margin-bottom: 10px;">
+                <p style="margin: 0;">
+                  <strong><a href="https://brave.com/">Brave</a></strong> • Data Privacy Research Intern • Summer 2023
+                </p>
+                <p style="margin: 0;">
+                  Worked on Solana NFT token-gating for Web3 <a href="https://github.com/brave/brave-talk">brave-talk</a> calls
+                </p>
+              </li>
+          
+              <li style="margin-bottom: 10px;">
+                <p style="margin: 0;">
+                  <strong><a href="https://brave.com/">Brave</a></strong> • Ads and Privacy Research Engineer Intern • Summer 2022
+                </p>
+                <p style="margin: 0;">
+                  Worked on testing E2E encryption for <a href="https://github.com/brave/brave-talk">brave-talk</a> calls
+                </p>
+              </li>
+          
+              <li>
+                <p style="margin: 0;">
+                  <strong><a href="https://www.educative.io/">Educative</a></strong> • Educative Answers Technical Lead • May 2018 – May 2021
+                </p>
+              </li>
+          
+            </ul>
+          </section>      
+        
+        <hr>
+        <section  id="education">
+            <h1>Education</h1>
+            <br>
+            <ul>
+                <li>
+                    <p style="margin: 0;"><strong><a href="https://www.vt.edu/">Virginia Tech</a></strong></p>
+                    <p style="margin: 0;">Ph.D Candidate (August 2021 to ) </p>
+                    </li>
+                <br>
+                <li>
+                    <p style="margin: 0;"><strong><a href="https://www.nu.edu.pk/">FAST-NUCES</a></strong></p>
+                    <p style="margin: 0;">Bachelor in Computer Science (August 2017 to August 2021)</p>
+                    </li>
+            </ul>
+        </section>
+        
+        <hr>
+        <section  id="mentoring">
+            <h1>Teaching and Mentoring</h1>
+            <br>
+            <ul style="list-style: none; padding-left: 0;">
+              
+              <li style="margin-bottom: 1rem;">
+                <p style="margin: 0;">
+                  <strong>1.Guest Lecture:</strong> Delivered a guest lecture for 
+                  <a href="https://future-of-security.github.io/course/schedule/#week-5">BIT/CS/PSCI 4164: Future of Security</a> (August 2025).
+                </p>
+              </li>
+              <li style="margin-bottom: 1rem;">
+                <p style="margin: 0;">
+                  <strong>2.Guest Lecture:</strong> Delivered a guest lecture at 
+                  <a href="index-img/guest-lecture.png">Washington University in St. Louis</a> 
+                  for the <strong>Data-Driven Privacy and Security</strong> course.
+                </p>
+              </li>
+          
+              <li style="margin-bottom: 1rem;">
+                <p style="margin: 0;">
+                  <strong>3.Undergraduate Mentorship:</strong> Mentored a student under 
+                  the <strong>Center for the Enhancement of Engineering Diversity (CEED)</strong> funding.
+                </p>
+                <ul style="margin-top: 4px; margin-bottom: 0;">
+                    <li style="margin-left: 20px;">- Won the Best Poster Award on one of our works</li>
+                    <li style="margin-left: 20px;">- Co-author with me on two of our works</li>
+                </ul>
+              </li>
+          
+              <li>
+                <p style="margin: 0;">
+                  <strong>4.CS 5774: User Interface Software</strong> — 
+                  Graduate Teaching Assistant (Virginia Tech Fall 2022 – 2023)
+                </p>
+              </li>
+          
+            </ul>
+          </section> 
+        
+        <hr>
+        <section id="awards">
+            <h1>Honors &amp; Awards</h1>
+          
+            <h3>Fellowships</h3>
+            <ul style="list-style: none; padding-left: 0;">
+              <li><strong>2025–2026 Winner,</strong> <a href="https://www.cals.vt.edu/academic-programs/current/graduate/pratt.html">John Lee Pratt Graduate Fellowship</a></li>
+              <li><strong>2025–2026 Winner,</strong> <a href="https://gpss.vt.edu/programs/grdp.html">Graduate Research Development Program (GRDP) Fellowship</a></li>
+              <li><strong>2024–2025 Winner,</strong> <a href="https://www.cals.vt.edu/academic-programs/current/graduate/pratt.html">John Lee Pratt Graduate Fellowship</a></li>
+              <li><strong>2024–2025 Winner,</strong> <a href="https://gpss.vt.edu/programs/grdp.html">Graduate Research Development Program (GRDP) Fellowship</a></li>
+            </ul>
+          
+            <h3>Awards</h3>
+            <ul style="list-style: none; padding-left: 0;">
+              <li><strong>2025 Winner,</strong> CCI People’s Choice Award for our poster</li>
+              <li><strong>2024 Winner,</strong> ACM Conference on Computer and Communications Security (CCS) Distinguished Artifact Award</li>
+            </ul>
+          
+            <h3>Grants</h3>
+            <ul style="list-style: none; padding-left: 0;">
+              <li><strong>2024 Travel Grant,</strong> IEEE Symposium on Security and Privacy</li>
+              <li><strong>2024 Travel Grant,</strong> ACM Conference on Computer and Communications Security</li>
+              <li><strong>2023 Travel Grant,</strong> Proceedings on Privacy Enhancing Technologies Symposium</li>
+            </ul>
+    
+            <h3>Community Service</h3>
+            <ul style="list-style: none; padding-left: 0;">
+              <li><strong>Program Committee,</strong> <a href="https://www2026.thewebconf.org/organization/program-committee.html">ACM WWW 2026</a> (Security and Privacy Track)</li>
+              <li><strong>Artifact Review Committee,</strong> <a href="https://petsymposium.org/cfp24.php">PETS 2024</a></li>
+            </ul>
+            </section>
+        
+        <hr>
+    </div> </body>
+</html>
